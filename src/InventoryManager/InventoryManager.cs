@@ -17,7 +17,7 @@ public class InventoryManager
     public static async Task Main(string[] args)
     {
         ConsoleUI.CreateNewPageFor("Menu");
-        ProductList list = new ProductList();
+        ProductList list = new ();
         while (true)
         {
             ConsoleUI.PromptInfo("1. Add Product\n2. Show Product\n3. Edit Product\n4. Delete Product");

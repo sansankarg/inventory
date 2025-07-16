@@ -11,10 +11,10 @@ using System;
 internal class FeatureHandlers
 {
     /// <summary>
-    /// Handle getting user inputs and addition of a new product to the inventory.
+    /// Handle getting user inputs and adds a new product to the inventory.
     /// </summary>
     /// <remarks>
-    /// This method prompt the user to enter all the details for the product
+    /// This method prompts the user to enter all the details for the product
     /// and create a new product with the user input details in product inventory.
     /// </remarks>
     /// <param name="list">Give access to user list</param>
@@ -46,7 +46,7 @@ internal class FeatureHandlers
     /// Handles showing the products in the inventory to the user.
     /// </summary>
     /// <remarks>
-    /// This method list all the products as a table format to the user. It informs user
+    /// This method lists all the products as a table format to the user. It informs user
     /// if product list was empty and ask user to return back to menu.
     /// </remarks>
     /// <param name="list">Give access to user list</param>
@@ -64,7 +64,7 @@ internal class FeatureHandlers
     /// <summary>
     /// Handles editing a product in the inventory by getting user input and applying the changes.
     /// </summary>
-    /// <remarks> This method list all the products as a table format to the user and prompt the user to
+    /// <remarks> This method lists all the products as a table format to the user and prompt the user to
     /// select a index of product to edit (It informs user if product list was empty and ask user to return
     /// back to menu). It list the available
     /// fields of the product and prompt the user to select the field to edit. Then it prompt the user to
@@ -98,9 +98,9 @@ internal class FeatureHandlers
     /// <summary>
     /// Handles the deletion of a product from the provided product list.
     /// </summary>
-    /// <remarks>This method list the products as table format with index to the user and prompt the user
+    /// <remarks>This method lists the products as table format with index to the user and prompt the user
     /// to select a index of product to delete. If no products are in the list, then it inform the user
-    /// that there is products in the list so navigate back to menu. It also check the input is a valid index.
+    /// that there is no products in the list so navigate back to menu. It also check the input is a valid index.
     /// </remarks>
     /// <param name="list">The <see cref="ProductList"/> instance containing the products to manage.</param>
     public static void HandleDeleteProduct(ProductList list)
@@ -166,7 +166,7 @@ internal class FeatureHandlers
     /// Will list all the products as table.
     /// </summary>
     /// <param name="list">Give access to user list.</param>
-    /// <returns><see cref="false"/> if list is empty; otherwies <see cref="true"/></returns>
+    /// <returns><see cref="false"/> If list is empty; otherwies <see cref="true"/></returns>
     private static bool ShowProducts(ProductList list)
     {
         List<Product>? currentProductList = list.Get();

@@ -1,7 +1,7 @@
 ﻿namespace InventoryManager.Models;
 
 /// <summary>
-/// Represent a product with name, id, price, and quantity.
+/// Represent a product with Name, Id, Price, and Quantity fields.
 /// </summary>
 public class Product
 {
@@ -17,34 +17,34 @@ public class Product
     }
 
     /// <summary>
-    /// Gets the name of the name field.
+    /// Gets the name of the Name field.
     /// </summary>
     /// <value>
-    /// Holds the name of the name field.
+    /// Holds the name of the Name field.
     /// </value>
     public static string Name => "Name";
 
     /// <summary>
-    /// Gets the name the id field.
+    /// Gets the name the id Field.
     /// </summary>
-    /// /// <value>
-    /// Holds the name of the id field.
+    /// <value>
+    /// Holds the name of the id Field.
     /// </value>
     public static string Id => "Id";
 
     /// <summary>
-    /// Gets the name of the price field.
+    /// Gets the name of the Price field.
     /// </summary>
-    /// /// <value>
-    /// Holds the name of the price field.
+    /// <value>
+    /// Holds the name of the Price field.
     /// </value>
     public static string Price => "Price";
 
     /// <summary>
-    /// Gets the name of the quantity field.
+    /// Gets the name of the Quantity field.
     /// </summary>
-    /// /// <value>
-    /// Holds the name of the quantity field.
+    /// <value>
+    /// Holds the name of the Quantity field.
     /// </value>
     public static string Quantity => "Quantity";
 

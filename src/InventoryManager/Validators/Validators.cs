@@ -3,16 +3,16 @@
 namespace InventoryManager.Validators;
 
 /// <summary>
-/// Provides validators for product fields via a <see cref="Validate"/> method."/>
+/// Provides validators for product fields via a <see cref="Validate"/> method.
 /// </summary>
 public class Validators
 {
     /// <summary>
-    /// Validate the value based on the field name and will not validate if it is a unhandled field.
+    /// Validate the value based on the field name and will not validate if it is an unhandled field.
     /// </summary>
     /// <param name="field">Field to type to validate.</param>
     /// <param name="value">Value to validate.</param>
-    /// <returns><see cref="true"/> if value pass the specific field validation or unhandled fields; otherwise <see cref="false"/>.</returns>
+    /// <returns><see cref="true"/> If value passes the specific field validation or unhandled fields; otherwise <see cref="false"/>.</returns>
     public static bool Validate(string field, object? value)
     {
         if (value is null)
@@ -40,7 +40,7 @@ public class Validators
     {
         if (name.Length >= 20)
         {
-            ConsoleUI.PromptInfo("Should not exceed 20 characters !", ConsoleColor.Yellow);
+            ConsoleUI.PromptInfo("Name should not exceed 20 characters !", ConsoleColor.Yellow);
             return false;
         }
 
@@ -51,7 +51,7 @@ public class Validators
     {
         if (id.Length != 10)
         {
-            ConsoleUI.PromptInfo("Must be 10 character! ", ConsoleColor.Yellow);
+            ConsoleUI.PromptInfo("Id must have 10 characters ! ", ConsoleColor.Yellow);
             return false;
         }
 
