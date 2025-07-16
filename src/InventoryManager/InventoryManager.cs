@@ -1,8 +1,6 @@
 ﻿using InventoryManager.FeatureHandler;
 using InventoryManager.Models;
-using InventoryManager.Parsers;
 using InventoryManager.UI;
-using InventoryManager.Validators;
 
 namespace Assignments;
 
@@ -12,7 +10,7 @@ namespace Assignments;
 public class InventoryManager
 {
     /// <summary>
-    /// The Main method is the entry point of a inventory manager, creates a new instance of <see cref="ProductList"/>, prompts the user for actions, and handles them accordingly.
+    /// The Main method is the entry point of the inventory manager, creates a new instance of <see cref="ProductList"/>, prompts the user for actions, and handles them accordingly.
     /// </summary>
     /// <param name="args">Command line arguments</param>
     /// <returns>A task that represents the asynchronous operation of the application.</returns>
@@ -22,7 +20,7 @@ public class InventoryManager
         ProductList list = new ProductList();
         while (true)
         {
-            ConsoleUI.PromptInfo("1. Add\n2. Show\n3. Edit\n4. Delete");
+            ConsoleUI.PromptInfo("1. Add Product\n2. Show Product\n3. Edit Product\n4. Delete Product");
             ConsoleUI.PromptInfo("5. Exit\n", ConsoleColor.Red);
             string choice = ConsoleUI.PromptAndGetInput("\nWhat do you want to do : ");
             switch (choice)
@@ -40,27 +38,37 @@ public class InventoryManager
                     FeatureHandlers.HandleDeleteProduct(list);
                     break;
                 case "5":
-                    do
+                    bool confirmExit = await ConfirmExitAsync();
+                    if (!confirmExit)
                     {
-                        string input = ConsoleUI.PromptAndGetInput("Closing the app will erase all product details. Are you sure you want to continue? (y/n) :", ConsoleColor.Magenta);
-                        if (input.ToUpper() == "Y")
-                        {
-                            ConsoleUI.PromptInfo("Closing the app...", ConsoleColor.Magenta);
-                            await Task.Delay(5000);
-                            return;
-                        }
-                        else if (input.ToUpper() == "N")
-                        {
-                            ConsoleUI.CreateNewPageFor("Menu");
-                            break;
-                        }
+                        return;
                     }
-                    while(true);
                     break;
                 default:
-                    Console.WriteLine("Enter a valid option");
+                    Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
+    }
+
+    private static async Task<bool> ConfirmExitAsync()
+    {
+        do
+        {
+            string input = ConsoleUI.PromptAndGetInput("Warning : Closing the app will erase all product details. Are you sure you want to continue? (y/n) :", ConsoleColor.Magenta);
+            if (input.ToUpper() == "Y")
+            {
+                ConsoleUI.PromptInfo("Closing the app...", ConsoleColor.Magenta);
+                await Task.Delay(1000);
+                return false;
+            }
+            else if (input.ToUpper() == "N")
+            {
+                ConsoleUI.CreateNewPageFor("Menu");
+                break;
+            }
+        }
+        while (true);
+        return true;
     }
 }
